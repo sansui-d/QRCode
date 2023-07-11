@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'antd';
+import { Button, Input } from 'antd';
 import './App.less';
 
 function App() {
@@ -8,6 +8,7 @@ function App() {
       <div className='qr-app-title'>背景二维码</div>
       <div className='qr-app-dec'>在线生成带背景的二维码</div>
       <Button type="primary">Primary Button</Button>
+      <Input></Input>
     </div>
   );
 }
