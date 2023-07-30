@@ -1,14 +1,26 @@
 import React from 'react';
-import { Button, Input } from 'antd';
+import Nav from '../components/Nav';
+import QrImage from '../components/QrImage';
+import Input from '../components/Input';
+import Upload from '../components/Upload';
+import ParameterList from '../components/ParameterList';
 import './App.less';
 
 function App() {
+
   return (
     <div className="qr-app">
-      <div className='qr-app-title'>背景二维码</div>
-      <div className='qr-app-dec'>在线生成带背景的二维码</div>
-      <Button type="primary">Primary Button</Button>
-      <Input></Input>
+      <Nav />
+      <div className='qr-content'>
+        <div className='qr-content-left'>
+          <QrImage />
+          <Input />
+          <Upload />
+        </div>
+        <div className='qr-content-right'>
+          <ParameterList />
+        </div>
+      </div>
     </div>
   );
 }
