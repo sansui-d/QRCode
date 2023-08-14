@@ -1,27 +1,29 @@
-import React from 'react';
+import React, { createContext, useState } from 'react';
 import Nav from '../components/Nav';
 import QrImage from '../components/QrImage';
 import Input from '../components/Input';
-import Upload from '../components/Upload';
+import Download from '../components/Download';
 import ParameterList from '../components/ParameterList';
 import './App.less';
 
 function App() {
+  const [dataC1, setDataC1] = useState({})
+  const [dataQr, setDataQr] = useState({})
 
   return (
     <div className="qr-app">
       <Nav />
       <div className='qr-content'>
         <div className='qr-content-left'>
-          <QrImage />
+          <QrImage dataC1={dataC1} dataQr={dataQr} />
           <Input />
-          <Upload />
+          <Download />
         </div>
         <div className='qr-content-right'>
-          <ParameterList />
+          <ParameterList onC1Change={setDataC1} onQrChange={setDataQr} />
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 

@@ -1,14 +1,14 @@
-import React from 'react';
-import { encodeData, rendererImage, } from 'beautify-qrcode';
+import React, { useState } from 'react';
+import { QRImage, QRCode } from 'react-qrbtf'
+import svg from '../../assets/svg/svg1.svg'
 import './index.less';
 
-function QrImage() {
-    const qrcode = encodeData({
-        text: '456',
-        correctLevel: 0,
-    });
+function QrImage(props) {
+    const { dataC1, dataQr } = props
+    console.log(QRCode)
     return (
-        <div className="qr-img" dangerouslySetInnerHTML={{ __html: rendererImage(qrcode) }}>
+        <div className="qr-img">
+            <QRImage value='123' icon={svg} {...dataC1} {...dataQr} />
         </div>
     );
 }
