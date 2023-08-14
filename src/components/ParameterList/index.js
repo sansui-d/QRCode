@@ -24,28 +24,29 @@ const iconOption = [
 ]
 
 const typeOption = [
-    { value: 0, text: '矩形' },
-    { value: 1, text: '圆形' },
+    { value: 'rect', text: '矩形' },
+    { value: 'round', text: '圆形' },
+    { value: 'rand', text: '星星' },
 ]
 
 const posTypeOption = [
-    { value: 0, text: '矩形' },
-    { value: 1, text: '圆形' },
-    { value: 2, text: '星星' },
+    { value: 'rect', text: '矩形' },
+    { value: 'round', text: '圆形' },
+    { value: 'planet', text: '星星' },
 ]
 
 function ParameterList(props) {
     const { onC1Change, onQrChange } = props
-    const [level, setLevel] = useState(1);
+    const [level, setLevel] = useState('M');
     const [icon, setIcon] = useState(svg);
-    const [backgroudImage, setBackgroudImage] = useState(img);
-    const [type, setType] = useState(0);
-    const [size, setSize] = useState(0);
-    const [opacity, setOpacity] = useState(0);
-    const [otherColorDark, setOtherColorDark] = useState('#aaaaaa');
-    const [otherColorLight, setOtherColorLight] = useState('#aaaaaa');
-    const [posType, setPosType] = useState(0);
-    const [posColor, setPosColor] = useState('#aaaaaa')
+    const [image, setImage] = useState(img);
+    const [type, setType] = useState('rect');
+    const [size, setSize] = useState(100);
+    const [opacity, setOpacity] = useState(100);
+    const [darkColor, setDarkColor] = useState('#000000');
+    const [lightColor, setLightColor] = useState('#ffffff');
+    const [posType, setPosType] = useState('rect');
+    const [posColor, setPosColor] = useState('#000000')
     const parameterList = [
         { label: '容错率', value: <Select defaultValue={level} options={levelOption} onChange={setLevel} />, key: 'parameter1' },
         { label: '图标', value: <Select defaultValue={icon} options={iconOption} onChange={setIcon} />, key: 'parameter2' },
@@ -53,16 +54,16 @@ function ParameterList(props) {
         { label: '信息点样式', value: <Select defaultValue={type} options={typeOption} onChange={setType} />, key: 'parameter4' },
         { label: '信息点缩放', value: <Input type='number' />, key: 'parameter5' },
         { label: '信息点不透明度', value: <Input type='number' />, key: 'parameter6' },
-        { label: '信息点深色', value: <ColorPicker color={otherColorDark} onChange={setOtherColorDark} />, key: 'parameter7' },
-        { label: '信息点浅色', value: <ColorPicker color={otherColorLight} onChange={setOtherColorLight} />, key: 'parameter8' },
+        { label: '信息点深色', value: <ColorPicker color={darkColor} onChange={setDarkColor} />, key: 'parameter7' },
+        { label: '信息点浅色', value: <ColorPicker color={lightColor} onChange={setLightColor} />, key: 'parameter8' },
         { label: '定位点样式', value: <Select defaultValue={posType} options={posTypeOption} onChange={setPosType} />, key: 'parameter9' },
         { label: '定位点颜色', value: <ColorPicker color={posColor} onChange={setPosColor} />, key: 'parameter10' },
     ]
     useEffect(() => {
         onC1Change && onC1Change(
-            { backgroudImage, type, size, opacity, otherColorDark, otherColorLight, posType, posColor }
+            { image, type, size, opacity, setDarkColor, lightColor, posType, posColor }
         )
-    }, [backgroudImage, type, size, opacity, otherColorDark, otherColorLight, posType, posColor])
+    }, [image, type, size, opacity, setDarkColor, lightColor, posType, posColor])
     useEffect(() => {
         onQrChange && onQrChange(
             { level }
