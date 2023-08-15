@@ -7,20 +7,21 @@ import ParameterList from '../components/ParameterList';
 import './App.less';
 
 function App() {
-  const [data, setData] = useState({})
+  const [parameterData, setParameterData] = useState({})
+  const [value, setValue] = useState('')
 
   return (
     <div className="qr-app">
       <Nav />
       <div className='qr-content'>
         <div className='qr-content-left'>
-          <QrContent data={data} />
-          <Input />
+          <QrContent parameterData={parameterData} value={value} />
+          <Input value={value} onChange={setValue} placeholder={'https://baidu.com'} />
           <Download />
         </div>
         <div className='qr-content-right'>
-          <ParameterList onChange={setData} />
-        </div>a
+          <ParameterList onChange={setParameterData} />
+        </div>
       </div>
     </div >
   );

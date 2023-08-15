@@ -4,11 +4,10 @@ import svg from '../../assets/img/a.png'
 import './index.less';
 
 function QrContent(props) {
-    const { data } = props
-    console.log(data)
+    const { parameterData, value } = props
     return (
         <div className="qr-img">
-            <QRImage value='123'  {...data}  />
+            <QRImage value={value ?? 'https://baidu.com'} {...parameterData} />
         </div>
     );
 }

@@ -60,9 +60,9 @@ function ParameterList(props) {
     ]
     useEffect(() => {
         onChange && onChange(
-            { level,image, type, size, opacity, darkColor, lightColor, posType, posColor }
+            { level, image, type, size, opacity, darkColor, lightColor, posType, posColor }
         )
-    }, [level,image, type, size, opacity, darkColor, lightColor, posType, posColor])
+    }, [level, image, type, size, opacity, darkColor, lightColor, posType, posColor])
     return (
         <div className="qr-parameter-list">
             {parameterList.map((item) => (
