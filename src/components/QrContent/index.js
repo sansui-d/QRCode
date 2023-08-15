@@ -8,7 +8,7 @@ function QrContent(props) {
     console.log(data)
     return (
         <div className="qr-img">
-            <QRImage value='123' icon={svg} iconScale={0.33} {...data}  />
+            <QRImage value='123'  {...data}  />
         </div>
     );
 }

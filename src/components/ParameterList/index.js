@@ -8,10 +8,10 @@ import svg from '../../assets/svg/svg1.svg'
 import './index.less';
 
 const levelOption = [
-    { value: 1, text: '7%', key: 'level0' },
-    { value: 0, text: '15%', key: 'level1' },
-    { value: 3, text: '25%', key: 'level2' },
-    { value: 2, text: '30%', key: 'level3' }
+    { value: 'L', text: '7%', key: 'level0' },
+    { value: 'M', text: '15%', key: 'level1' },
+    { value: 'Q', text: '25%', key: 'level2' },
+    { value: 'H', text: '30%', key: 'level3' }
 ]
 
 const iconOption = [
@@ -36,7 +36,7 @@ const posTypeOption = [
 
 function ParameterList(props) {
     const { onChange } = props
-    const [level, setLevel] = useState('M');
+    const [level, setLevel] = useState('H');
     const [icon, setIcon] = useState(svg);
     const [image, setImage] = useState(img);
     const [type, setType] = useState('rect');
@@ -51,8 +51,8 @@ function ParameterList(props) {
         { label: '图标', value: <Select defaultValue={icon} options={iconOption} onChange={setIcon} />, key: 'parameter2' },
         { label: '背景图片', value: <Upload />, key: 'parameter3' },
         { label: '信息点样式', value: <Select defaultValue={type} options={typeOption} onChange={setType} />, key: 'parameter4' },
-        { label: '信息点缩放', value: <Input type='number' />, key: 'parameter5' },
-        { label: '信息点不透明度', value: <Input type='number' />, key: 'parameter6' },
+        { label: '信息点缩放', value: <Input value={size} type='number' onChange={setSize} />, key: 'parameter5' },
+        { label: '信息点不透明度', value: <Input value={opacity} type='number' onChange={setOpacity} />, key: 'parameter6' },
         { label: '信息点深色', value: <ColorPicker color={darkColor} onChange={setDarkColor} />, key: 'parameter7' },
         { label: '信息点浅色', value: <ColorPicker color={lightColor} onChange={setLightColor} />, key: 'parameter8' },
         { label: '定位点样式', value: <Select defaultValue={posType} options={posTypeOption} onChange={setPosType} />, key: 'parameter9' },
@@ -60,9 +60,9 @@ function ParameterList(props) {
     ]
     useEffect(() => {
         onChange && onChange(
-            { level,image, type, size, opacity, setDarkColor, lightColor, posType, posColor }
+            { level,image, type, size, opacity, darkColor, lightColor, posType, posColor }
         )
-    }, [level,image, type, size, opacity, setDarkColor, lightColor, posType, posColor])
+    }, [level,image, type, size, opacity, darkColor, lightColor, posType, posColor])
     return (
         <div className="qr-parameter-list">
             {parameterList.map((item) => (
