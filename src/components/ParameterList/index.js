@@ -8,35 +8,34 @@ import svg from '../../assets/svg/svg1.svg'
 import './index.less';
 
 const levelOption = [
-    { value: 1, text: '7%' },
-    { value: 0, text: '15%' },
-    { value: 3, text: '25%' },
-    { value: 2, text: '30%' }
+    { value: 1, text: '7%', key: 'level0' },
+    { value: 0, text: '15%', key: 'level1' },
+    { value: 3, text: '25%', key: 'level2' },
+    { value: 2, text: '30%', key: 'level3' }
 ]
 
 const iconOption = [
-    { value: 0, text: '无' },
-    { value: 1, text: '自定义' },
-    { value: 2, text: '微信-小' },
-    { value: 3, text: '微信' },
-    { value: 4, text: '微信支付' },
-    { value: 5, text: '支付宝' },
+    { value: 0, text: '无', key: 'icon0' },
+    { value: 1, text: '自定义', key: 'icon1' },
+    { value: 2, text: '微信-小', key: 'icon2' },
+    { value: 3, text: '微信', key: 'icon3' },
+    { value: 4, text: '微信支付', key: 'icon4' },
+    { value: 5, text: '支付宝', key: 'icon5' },
 ]
 
 const typeOption = [
-    { value: 'rect', text: '矩形' },
-    { value: 'round', text: '圆形' },
-    { value: 'rand', text: '星星' },
+    { value: 'rect', text: '矩形', key: 'type0' },
+    { value: 'round', text: '圆形', key: 'type1' },
 ]
 
 const posTypeOption = [
-    { value: 'rect', text: '矩形' },
-    { value: 'round', text: '圆形' },
-    { value: 'planet', text: '星星' },
+    { value: 'rect', text: '矩形', key: 'posType0' },
+    { value: 'round', text: '圆形', key: 'posType1' },
+    { value: 'planet', text: '星星', key: 'posType2' },
 ]
 
 function ParameterList(props) {
-    const { onC1Change, onQrChange } = props
+    const { onChange } = props
     const [level, setLevel] = useState('M');
     const [icon, setIcon] = useState(svg);
     const [image, setImage] = useState(img);
@@ -60,15 +59,10 @@ function ParameterList(props) {
         { label: '定位点颜色', value: <ColorPicker color={posColor} onChange={setPosColor} />, key: 'parameter10' },
     ]
     useEffect(() => {
-        onC1Change && onC1Change(
-            { image, type, size, opacity, setDarkColor, lightColor, posType, posColor }
+        onChange && onChange(
+            { level,image, type, size, opacity, setDarkColor, lightColor, posType, posColor }
         )
-    }, [image, type, size, opacity, setDarkColor, lightColor, posType, posColor])
-    useEffect(() => {
-        onQrChange && onQrChange(
-            { level }
-        )
-    }, [level])
+    }, [level,image, type, size, opacity, setDarkColor, lightColor, posType, posColor])
     return (
         <div className="qr-parameter-list">
             {parameterList.map((item) => (

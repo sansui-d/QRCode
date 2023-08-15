@@ -6,7 +6,7 @@ function Select(props) {
     return (
         <select className="qr-select" defaultValue={defaultValue} onChange={(value) => { onChange && onChange(value) }}>
             {options?.map((option) => (
-                <option value={option.value}>{option.text}</option>
+                <option value={option.value} key={option.key}>{option.text}</option>
             ))}
         </select>
     );
