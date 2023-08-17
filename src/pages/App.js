@@ -14,12 +14,16 @@ function App() {
     <div className="qr-app">
       <Nav />
       <div className='qr-content'>
-        <div className='qr-content-left'>
-          <QrContent parameterData={parameterData} value={value} />
-          <Input value={value} onChange={setValue} placeholder={'https://baidu.com'} />
-          <Download />
+        <div className='qr-content-view'>
+          <div className='qr-content-view-img'>
+            <QrContent parameterData={parameterData} value={value} />
+          </div>
+          <div className='qr-content-view-download'>
+            <Input value={value} onChange={setValue} placeholder={'https://baidu.com'} />
+            <Download />
+          </div>
         </div>
-        <div className='qr-content-right'>
+        <div className='qr-content-parameter'>
           <ParameterList onChange={setParameterData} />
         </div>
       </div>
