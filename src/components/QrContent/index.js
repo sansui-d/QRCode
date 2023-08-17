@@ -5,9 +5,10 @@ import './index.less';
 
 function QrContent(props) {
     const { parameterData, value } = props
+    console.log(parameterData)
     return (
         <div className="qr-img">
-            <QRImage value={value ?? 'https://baidu.com'} {...parameterData} />
+            <QRImage value={value || 'https://baidu.com'} {...parameterData} />
         </div>
     );
 }

@@ -4,7 +4,10 @@ import Select from '../Select'
 import Upload from '../Upload'
 import ColorPicker from '../Colorpicker';
 import img from '../../assets/img/a.png';
-import svg from '../../assets/svg/svg1.svg'
+import alipay from '../../assets/svg/ali-pay.svg'
+import vxSmall from '../../assets/svg/vx-small.svg'
+import vx from '../../assets/svg/vx.svg'
+import vxPay from '../../assets/svg/vx-pay.svg'
 import './index.less';
 
 const levelOption = [
@@ -15,12 +18,12 @@ const levelOption = [
 ]
 
 const iconTypeOption = [
-    { value: 0, text: '无', key: 'icon0' },
-    { value: 1, text: '自定义', key: 'icon1' },
-    { value: 2, text: '微信-小', key: 'icon2' },
-    { value: 3, text: '微信', key: 'icon3' },
-    { value: 4, text: '微信支付', key: 'icon4' },
-    { value: 5, text: '支付宝', key: 'icon5' },
+    { value: '0', text: '无', key: 'icon0' },
+    { value: '1', text: '自定义', key: 'icon1' },
+    { value: '2', text: '微信-小', key: 'icon2' },
+    { value: '3', text: '微信', key: 'icon3' },
+    { value: '4', text: '微信支付', key: 'icon4' },
+    { value: '5', text: '支付宝', key: 'icon5' },
 ]
 
 const typeOption = [
@@ -37,8 +40,8 @@ const posTypeOption = [
 function ParameterList(props) {
     const { onChange } = props
     const [level, setLevel] = useState('H');
-    const [icon, setIcon] = useState('');
-    const [iconScale, setIconScale] = useState(33);
+    const [icon, setIcon] = useState('none');
+    const [iconScale, setIconScale] = useState(22);
     const [iconType, setIconType] = useState(0);
     const [image, setImage] = useState(img);
     const [type, setType] = useState('rect');
@@ -62,11 +65,27 @@ function ParameterList(props) {
         { label: '定位点样式', value: <Select defaultValue={posType} options={posTypeOption} onChange={setPosType} />, key: 'parameter11' },
         { label: '定位点颜色', value: <ColorPicker color={posColor} onChange={setPosColor} />, key: 'parameter12' },
     ]
+    const currentIcon = useMemo(() => {
+        const iconList = ['', icon, vxSmall, vx, vxPay, alipay]
+        return iconList[iconType]
+    }, [icon, iconType])
+    const scale = useMemo(() => {
+        if (iconScale > 33 || iconScale < 0) {
+            return 0.33
+        }
+        if (iconScale > 0 && iconScale < 1){
+            return 0.01
+        }
+        if (iconScale >= 1 && iconScale < 10){
+            return '0.0' + Math.round(iconScale)
+        }
+        return '0.' + Math.round(iconScale)
+    }, [iconScale])
     useEffect(() => {
         onChange && onChange(
-            { icon, iconScale: (Number(iconScale) / 100).toFixed(0), level, image, type, size, opacity, darkColor, lightColor, posType, posColor }
+            { icon: currentIcon, iconScale: scale, level, image, type, size, opacity, darkColor, lightColor, posType, posColor }
         )
-    }, [icon, iconScale, level, image, type, size, opacity, darkColor, lightColor, posType, posColor])
+    }, [icon, iconType, iconScale, level, image, type, size, opacity, darkColor, lightColor, posType, posColor])
     return (
         <div className="qr-parameter-list">
             {parameterList.map((item) => {

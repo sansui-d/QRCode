@@ -6,8 +6,7 @@ import merge from "lodash/merge";
 export const RendererWrapper = (renderer) => {
     const Renderer = (props) => {
         let newProps = Object.assign({}, props);
-        newProps.value = newProps.value || "https://qrbtf.com";
-        newProps.level = newProps.title || newProps.icon ? "H" : newProps.level || 'M'
+        newProps.value = newProps.value || 'https://baidu.com';
         newProps.qrcode = newProps.qrcode || encodeData({ text: newProps.value, correctLevel: newProps.level, typeNumber: -1 });
         newProps.styles = reactCSS(merge({
             'default': renderer.defaultCSS
