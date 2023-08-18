@@ -7,7 +7,7 @@ import './index.less';
 function ColorPicker(props) {
     const { color, onChange } = props;
     const pickerRef = useRef(null)
-    const btnRef = useRef(null)
+    const btnRef = useRef(null);
     const [showPicker, setShowPicker] = useState(false);
     useClickAway(pickerRef, (e) => {
         if (showPicker && e.target !== btnRef.current) {
