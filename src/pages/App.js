@@ -1,9 +1,10 @@
-import React, { createContext, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Nav from '../components/Nav';
 import QrContent from '../components/QrContent';
 import Input from '../components/Input';
 import Download from '../components/Download';
 import ParameterList from '../components/ParameterList';
+import UploadQr from '../components/UploadQr';
 import './App.less';
 
 function App() {
@@ -16,11 +17,12 @@ function App() {
       <div className='qr-content'>
         <div className='qr-content-view'>
           <div className='qr-content-view-img'>
-            <QrContent parameterData={parameterData} value={value} />
+            <QrContent parameterData={parameterData} value={value}/>
           </div>
           <div className='qr-content-view-download'>
-            <Input value={value} onChange={setValue} placeholder={'https://baidu.com'} />
-            <Download />
+            <Input value={value} setValue={setValue} placeholder={'https://baidu.com'} />
+            <UploadQr onChange={setValue} />
+            <Download value={value} />
           </div>
         </div>
         <div className='qr-content-parameter'>

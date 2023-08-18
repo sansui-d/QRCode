@@ -5,7 +5,7 @@ function Upload(props) {
     const { img, setImage } = props
     const handlePickImg = async () => {
         try {
-            const arrFile = await window.showOpenFilePicker({
+            const files = await window.showOpenFilePicker({
                 types: [{
                     accept: {
                         'image/*': ['.png', '.gif', '.jpeg', '.jpg', '.webp']
@@ -13,9 +13,11 @@ function Upload(props) {
                 }],
                 multiple: false
             });
-            const URL = window.URL || window.webkitURL;
-            var imgURL = URL.createObjectURL(await arrFile[0].getFile());
-            setImage(imgURL)
+            const reader = new FileReader();
+            reader.readAsDataURL(await files[0].getFile());
+            reader.onload = function (e) {
+                setImage(e.target.result)
+            };
         } catch (err) {
             console.log(err)
         }

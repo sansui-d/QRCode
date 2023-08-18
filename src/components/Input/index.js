@@ -1,23 +1,29 @@
-import React, {useState} from 'react';
+/*
+ * @Author: error: git config user.name & please set dead value or install git
+ * @Date: 2023-08-18 10:06:08
+ * @LastEditors: error: git config user.name & please set dead value or install git
+ * @LastEditTime: 2023-08-18 11:08:11
+ * @FilePath: /QRCode/src/components/Input/index.js
+ * @Description: 
+ */
+import React, { useState } from 'react';
 import './index.less';
 
 function Input(props) {
-    const { placeholder, value, type = 'text', onChange } = props;
-    const [inputValue, setInputValue] = useState(value);
-    const handleChange = (e) => {
-        onChange && onChange(e.target.value) 
+    const { placeholder, value, type = 'text', setValue } = props;
+    const handleBlur = (e) => {
+        setValue && setValue(e.target.value)
     }
     const handleKeyUp = (e) => {
-        console.log(e)
-        if(e.keyCode !== 13){
+        if (e.keyCode !== 13) {
             return
         }
-        onChange && onChange(e.target.value) 
+        setValue && setValue(e.target.value)
     }
     return (
         <div className="qr-input">
-            <input type={type} name="text" className="input" onChange={(e)=>{setInputValue(e.target.value)}}
-                placeholder={placeholder} value={inputValue} onKeyUp={handleKeyUp} onBlur={handleChange} />
+            <input type={type} name="text" className="input" onChange={(e) => { setValue(e.target.value) }}
+                placeholder={placeholder} value={value} onKeyUp={handleKeyUp} onBlur={handleBlur} />
         </div>
     );
 }

@@ -55,11 +55,11 @@ function ParameterList(props) {
         { label: '容错率', value: <Select defaultValue={level} options={levelOption} onChange={setLevel} />, key: 'parameter1' },
         { label: '图标', value: <Select defaultValue={iconType} options={iconTypeOption} onChange={setIconType} />, key: 'parameter2' },
         { label: '图标源', value: <Upload setImage={setIcon} />, key: 'parameter3' },
-        { label: '图标缩放', value: <Input value={iconScale} type='number' onChange={setIconScale} />, key: 'parameter4' },
+        { label: '图标缩放', value: <Input value={iconScale} type='number' setValue={setIconScale} />, key: 'parameter4' },
         { label: '背景图片', value: <Upload setImage={setImage} />, key: 'parameter5' },
         { label: '信息点样式', value: <Select defaultValue={type} options={typeOption} onChange={setType} />, key: 'parameter6' },
-        { label: '信息点缩放', value: <Input value={size} type='number' onChange={setSize} />, key: 'parameter7' },
-        { label: '信息点不透明度', value: <Input value={opacity} type='number' onChange={setOpacity} />, key: 'parameter8' },
+        { label: '信息点缩放', value: <Input value={size} type='number' setValue={setSize} />, key: 'parameter7' },
+        { label: '信息点不透明度', value: <Input value={opacity} type='number' setValue={setOpacity} />, key: 'parameter8' },
         { label: '信息点深色', value: <ColorPicker color={darkColor} onChange={setDarkColor} />, key: 'parameter9' },
         { label: '信息点浅色', value: <ColorPicker color={lightColor} onChange={setLightColor} />, key: 'parameter10' },
         { label: '定位点样式', value: <Select defaultValue={posType} options={posTypeOption} onChange={setPosType} />, key: 'parameter11' },
@@ -73,10 +73,10 @@ function ParameterList(props) {
         if (iconScale > 33 || iconScale < 0) {
             return 0.33
         }
-        if (iconScale > 0 && iconScale < 1){
+        if (iconScale > 0 && iconScale < 1) {
             return 0.01
         }
-        if (iconScale >= 1 && iconScale < 10){
+        if (iconScale >= 1 && iconScale < 10) {
             return '0.0' + Math.round(iconScale)
         }
         return '0.' + Math.round(iconScale)

@@ -1,3 +1,4 @@
+import jsQR from 'jsqr';
 import QRCode from "./qrcode";
 
 export const QRPointType = {
@@ -82,4 +83,28 @@ export function getTypeTable(qrcode) {
         }
     }
     return typeTable;
+}
+
+export function decodeData(file) {
+    let canvas = document.createElement('canvas');
+    let ctx = canvas.getContext('2d');
+    let img = document.createElement('img');
+    const maxSize = 400;
+
+    const URL = window.URL || window.webkitURL;
+    img.setAttribute('src', URL.createObjectURL(file));
+    return new Promise((resolve) => {
+        img.onload = () => {
+            let rate = Math.min(img.width, img.height) / maxSize;
+
+            canvas.width = img.width / rate;
+            canvas.height = img.height / rate;
+
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+            let result = jsQR(
+                ctx.getImageData(0, 0, canvas.width, canvas.height).data, canvas.width, canvas.height);
+            resolve(result);
+        };
+    })
 }
