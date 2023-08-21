@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '../Button';
 import './index.less';
 
 function Upload(props) {
@@ -24,7 +25,7 @@ function Upload(props) {
     }
     return (
         <div className="qr-upload">
-            <button onClick={handlePickImg}></button>
+            <Button onClick={handlePickImg} text='上传图片' />
         </div>
     );
 }

@@ -1,23 +1,40 @@
-.input {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  font-weight: 500;
-  color: #fff;
-  background-color: rgb(28, 28, 30);
-  box-shadow: 0 0 .4vw rgba(0, 0, 0, 0.5), 0 0 0 .15vw transparent;
-  border-radius: 0.4vw;
-  border: none;
+.qr-input {
+  appearance: none;
+  background-color: transparent;
+  border: 0.125em solid #1A1A1A;
+  border-radius: 0.9375em;
+  box-sizing: border-box;
+  color: #3B3B3B;
+  display: inline-block;
+  font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 1.75em;
+  min-width: 0;
   outline: none;
-  padding: 0.4vw;
-  max-width: 190px;
-  transition: .4s;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  will-change: transform;
+  width: 170px;
 }
 
-.input:hover {
-  box-shadow: 0 0 0 .15vw rgba(135, 207, 235, 0.186);
+.qr-input:disabled {
+  pointer-events: none;
 }
 
-.input:focus {
-  box-shadow: 0 0 0 .15vw skyblue;
+.qr-input:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+}
+
+.qr-input:active {
+  box-shadow: none;
 }
 
 input::-webkit-outer-spin-button,

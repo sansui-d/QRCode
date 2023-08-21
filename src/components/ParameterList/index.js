@@ -3,11 +3,11 @@ import Input from '../Input'
 import Select from '../Select'
 import Upload from '../Upload'
 import ColorPicker from '../Colorpicker';
-import img from '../../assets/img/a.png';
 import alipay from '../../assets/svg/ali-pay.svg'
 import vxSmall from '../../assets/svg/vx-small.svg'
 import vx from '../../assets/svg/vx.svg'
 import vxPay from '../../assets/svg/vx-pay.svg'
+import { img } from '../../assets/img/img.js';
 import './index.less';
 
 const levelOption = [
@@ -59,7 +59,7 @@ function ParameterList(props) {
         { label: '背景图片', value: <Upload setImage={setImage} />, key: 'parameter5' },
         { label: '信息点样式', value: <Select defaultValue={type} options={typeOption} onChange={setType} />, key: 'parameter6' },
         { label: '信息点缩放', value: <Input value={size} type='number' setValue={setSize} />, key: 'parameter7' },
-        { label: '信息点不透明度', value: <Input value={opacity} type='number' setValue={setOpacity} />, key: 'parameter8' },
+        { label: '信息点透明度', value: <Input value={opacity} type='number' setValue={setOpacity} />, key: 'parameter8' },
         { label: '信息点深色', value: <ColorPicker color={darkColor} onChange={setDarkColor} />, key: 'parameter9' },
         { label: '信息点浅色', value: <ColorPicker color={lightColor} onChange={setLightColor} />, key: 'parameter10' },
         { label: '定位点样式', value: <Select defaultValue={posType} options={posTypeOption} onChange={setPosType} />, key: 'parameter11' },

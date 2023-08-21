@@ -20,8 +20,10 @@ function App() {
             <QrContent parameterData={parameterData} value={value}/>
           </div>
           <div className='qr-content-view-download'>
-            <Input value={value} setValue={setValue} placeholder={'https://baidu.com'} />
-            <UploadQr onChange={setValue} />
+            <div className='qr-content-view-upload'>
+              <Input value={value} setValue={setValue} placeholder={'https://baidu.com'} />
+              <UploadQr onChange={setValue} style={{width: 28, height:28}} />
+            </div>
             <Download value={value} />
           </div>
         </div>

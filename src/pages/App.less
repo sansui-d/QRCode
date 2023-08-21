@@ -1,15 +1,30 @@
-.qr-content {
+.qr-app {
   display: flex;
   flex-direction: column;
-  align-items: center;
-
-  .qr-content-view {
+  height: 100vh;
+  .qr-content {
     display: flex;
+    flex-direction: column;
     align-items: center;
-  }
-
-  .qr-content-parameter {
-    display: flex;
-    align-items: center;
+    flex: 1;
+    background-color: #f2f3f5;
+    justify-content: space-evenly;
+  
+    .qr-content-view {
+      display: flex;
+      align-items: center;
+      .qr-content-view-download {
+        .qr-content-view-upload {
+          display: flex;
+          margin-bottom: 10px;
+          align-items: center;
+        }
+      }
+    }
+  
+    .qr-content-parameter {
+      display: flex;
+      align-items: center;
+    }
   }
 }
