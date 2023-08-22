@@ -16,18 +16,23 @@ function App() {
       <Nav />
       <div className='qr-content'>
         <div className='qr-content-view'>
-          <div className='qr-content-view-img'>
-            <QrContent parameterData={parameterData} value={value}/>
+          <div className='qr-content-view-left'>
+            <QrContent parameterData={parameterData} value={value} />
           </div>
-          <div className='qr-content-view-download'>
+          <div className='qr-content-view-right'>
+            <div className='qr-content-view-title'>二维码内容：</div>
             <div className='qr-content-view-upload'>
               <Input value={value} setValue={setValue} placeholder={'https://baidu.com'} />
-              <UploadQr onChange={setValue} style={{width: 28, height:28}} />
+              <UploadQr onChange={setValue} style={{ width: 28, height: 28 }} />
             </div>
-            <Download value={value} />
+            <div className='qr-content-download'>
+              <div className='qr-content-view-title'>二维码下载：</div>
+              <Download value={value} />
+            </div>
           </div>
         </div>
         <div className='qr-content-parameter'>
+          <div className='qr-content-parameter-title'>参数配置：</div>
           <ParameterList onChange={setParameterData} />
         </div>
       </div>

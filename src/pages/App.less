@@ -13,7 +13,11 @@
     .qr-content-view {
       display: flex;
       align-items: center;
-      .qr-content-view-download {
+      .qr-content-view-left {
+        margin: 0 50px;
+      }
+      .qr-content-view-right {
+        margin: 0 50px;
         .qr-content-view-upload {
           display: flex;
           margin-bottom: 10px;
@@ -25,6 +29,16 @@
     .qr-content-parameter {
       display: flex;
       align-items: center;
+      flex-direction: column;
+      &-title {
+        align-self: self-start;
+        margin-left: 50px;
+        font-size: 20px;
+      }
+    }
+    .qr-content-view-title {
+      font-size: 20px;
+      margin-bottom: 10px;
     }
   }
 }

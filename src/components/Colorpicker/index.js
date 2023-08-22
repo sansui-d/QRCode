@@ -1,6 +1,6 @@
 import React, { useImperativeHandle, useRef, useState } from 'react';
 import { useClickAway } from 'react-use';
-import { BlockPicker } from 'react-color';
+import { TwitterPicker } from 'react-color';
 import Button from '../Button'
 import './index.less';
 
@@ -20,7 +20,7 @@ function ColorPicker(props) {
     return <div className='qr-colorpicker'>
         <Button text={color} onClick={handleClick} btnRef={btnRef} />
         {showPicker && <div className='qr-colorpicker-picker' ref={pickerRef}>
-            <BlockPicker color={color} onChangeComplete={(color) => { onChange && onChange(color.hex) }} />
+            <TwitterPicker color={color} onChangeComplete={(color) => { onChange && onChange(color.hex) }} />
         </div>}
     </div>;
 };
