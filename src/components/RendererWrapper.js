@@ -1,18 +1,12 @@
 import React from 'react';
 import { encodeData } from "../utils/qrcodeHandler";
-import reactCSS from "reactcss";
-import merge from "lodash/merge";
 
 export const RendererWrapper = (renderer) => {
     const Renderer = (props) => {
         let newProps = Object.assign({}, props);
         newProps.value = newProps.value || 'https://baidu.com';
         newProps.qrcode = newProps.qrcode || encodeData({ text: newProps.value, correctLevel: newProps.level, typeNumber: -1 });
-        newProps.styles = reactCSS(merge({
-            'default': renderer.defaultCSS
-        }, {
-            'default': props.styles
-        }));
+        newProps.styles = {...renderer.defaultCSS, ...props.styles};
 
         return (
             React.createElement(renderer, newProps)

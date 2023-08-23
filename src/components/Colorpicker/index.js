@@ -18,7 +18,7 @@ function ColorPicker(props) {
         setShowPicker(!showPicker)
     }
     return <div className='qr-colorpicker'>
-                {showPicker && <div className='qr-colorpicker-picker' ref={pickerRef}>
+        {showPicker && <div className='qr-colorpicker-picker' ref={pickerRef}>
             <TwitterPicker color={color} onChangeComplete={(color) => { onChange && onChange(color.hex) }} />
         </div>}
         <Button text={color} onClick={handleClick} btnRef={btnRef} />

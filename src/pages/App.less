@@ -8,7 +8,6 @@
     flex-direction: column;
     align-items: center;
     flex: 1;
-    background-color: #f2f3f5;
     justify-content: space-evenly;
   
     .qr-content-view {
@@ -41,5 +40,75 @@
       font-size: 20px;
       margin-bottom: 10px;
     }
+  }
+}
+
+.drak {
+  .qr-nav {
+    background-color: #1f3144;
+  }
+  .qr-content {
+    background-color: #252d38;
+  }
+  select {
+    color: #fff;
+    border: 0.125em solid #fff;
+  }
+  select:hover {
+    color: #1A1A1A;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  }
+  input {
+    color: #fff;
+    border: 0.125em solid #fff;
+  }
+  input:hover {
+    color: #1A1A1A;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  }
+  button {
+    color: #fff;
+    border: 0.125em solid #fff;
+  }
+  button:hover {
+    color: #1A1A1A;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  }
+  .qr-upload-qr:hover {
+    color: #1A1A1A;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  }
+  .qr-upload-qr {
+    border: 0.125em solid #fff;
+  }
+  div {
+    color: #fff;
+  }
+}
+
+@media(max-width: 768px) {
+  .qr-app {
+    height: 100%;
+  }
+  .qr-content {
+    padding-bottom: 10px;
+  }
+  .qr-content-view {
+    flex-direction: column;
+  }
+  .qr-parameter-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .qr-content-parameter-title {
+    margin-top: 20px;
+  }
+  .qr-colorpicker-picker {
+    transform: scale(.8);
+    bottom: 30px !important;
+    left: -28px !important;
   }
 }

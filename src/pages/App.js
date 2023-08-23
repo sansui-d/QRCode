@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Nav from '../components/Nav';
 import QrContent from '../components/QrContent';
 import Input from '../components/Input';
@@ -8,12 +8,19 @@ import UploadQr from '../components/UploadQr';
 import './App.less';
 
 function App() {
+  const [theme, setTheme] = useState('light')
   const [parameterData, setParameterData] = useState({})
   const [value, setValue] = useState('')
+  useEffect(() => {
+    const date = new Date();
+    if (date.getHours() >= 18) {
+      setTheme('drak')
+    }
+  }, [])
 
   return (
-    <div className="qr-app">
-      <Nav />
+    <div className={`qr-app ${theme}`}>
+      <Nav theme={theme} onChangeTheme={setTheme} />
       <div className='qr-content'>
         <div className='qr-content-view'>
           <div className='qr-content-view-left'>
@@ -32,7 +39,7 @@ function App() {
           </div>
         </div>
         <div className='qr-content-parameter'>
-          <div className='qr-content-parameter-title'>参数配置：</div>
+          <div className='qr-content-parameter-title'>二维码参数：</div>
           <ParameterList onChange={setParameterData} />
         </div>
       </div>

@@ -11,9 +11,9 @@ function Download(props) {
     }
     return (
         <div className="qr-download">
-            <Button className='qr-download-btn' onClick={()=>handleClick('svg')} text='svg' style={{width: 60}} />
-            <Button className='qr-download-btn' onClick={()=>handleClick('png')} text='png' style={{width: 60, marginLeft: 10}} />
-            <Button className='qr-download-btn' onClick={()=>handleClick('jpg')} text='jpg' style={{width: 60, marginLeft: 10}} />
+            <Button className='qr-download-btn' onClick={()=>handleClick('svg')} text='svg' style={{width: 64}} />
+            <Button className='qr-download-btn' onClick={()=>handleClick('png')} text='png' style={{width: 64, marginLeft: 10}} />
+            <Button className='qr-download-btn' onClick={()=>handleClick('jpg')} text='jpg' style={{width: 64, marginLeft: 10}} />
         </div>
     );
 }
