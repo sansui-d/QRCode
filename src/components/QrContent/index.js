@@ -1,4 +1,4 @@
-import React, { useEffect, useImperativeHandle,useRef } from 'react';
+import React from 'react';
 import QRImage from '../../components/QRImage'
 import './index.less';
 

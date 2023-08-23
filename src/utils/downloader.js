@@ -5,7 +5,7 @@ const MIME = { "jpg": "image/jpeg", "png": "image/png" };
 
 export function saveSvg(value, content) {
     let htmlContent = [svgHead + content]
-    let bl = new Blob(htmlContent, {type: "image/svg+xml"})
+    let bl = new Blob(htmlContent, { type: "image/svg+xml" })
     let a = document.createElement("a")
     let filename = "QRcode_" + value + ".svg"
 
@@ -42,20 +42,20 @@ export function saveImg(value, content, width, height, type) {
     let img = document.createElement('img');
     img.setAttribute('src', 'data:image/svg+xml;base64,' + btoa(svgData));
 
-        img.onload = () => {
-            ctx.fillStyle = 'white';
-            if (type === 'jpg') ctx.fillRect(0, 0, width, height);
-            ctx.drawImage(img, 0, 0, width, height);
-            // `download` attr is not well supported
-            // Will result in a download popup for chrome and the
-            // image opening in a new tab for others.
+    img.onload = () => {
+        ctx.fillStyle = 'white';
+        if (type === 'jpg') ctx.fillRect(0, 0, width, height);
+        ctx.drawImage(img, 0, 0, width, height);
+        // `download` attr is not well supported
+        // Will result in a download popup for chrome and the
+        // image opening in a new tab for others.
 
-            let a = document.createElement('a');
-            let data = canvas.toDataURL(MIME[type], 0.8);
-            a.setAttribute('href', data)
-            a.setAttribute('target', 'download')
-            a.setAttribute('download', filename);
-            a.click();
-        };
-    
+        let a = document.createElement('a');
+        let data = canvas.toDataURL(MIME[type], 0.8);
+        a.setAttribute('href', data)
+        a.setAttribute('target', 'download')
+        a.setAttribute('download', filename);
+        a.click();
+    };
+
 }

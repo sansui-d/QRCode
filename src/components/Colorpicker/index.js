@@ -1,4 +1,4 @@
-import React, { useImperativeHandle, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useClickAway } from 'react-use';
 import { TwitterPicker } from 'react-color';
 import Button from '../Button'
@@ -24,6 +24,5 @@ function ColorPicker(props) {
         <Button text={color} onClick={handleClick} btnRef={btnRef} />
     </div>;
 };
-
 
 export default ColorPicker

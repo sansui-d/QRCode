@@ -6,7 +6,7 @@ export const RendererWrapper = (renderer) => {
         let newProps = Object.assign({}, props);
         newProps.value = newProps.value || 'https://baidu.com';
         newProps.qrcode = newProps.qrcode || encodeData({ text: newProps.value, correctLevel: newProps.level, typeNumber: -1 });
-        newProps.styles = {...renderer.defaultCSS, ...props.styles};
+        newProps.styles = { ...renderer.defaultCSS, ...props.styles };
 
         return (
             React.createElement(renderer, newProps)
