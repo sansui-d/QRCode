@@ -29,7 +29,7 @@ function App() {
           <div className='qr-content-view-right'>
             <div className='qr-content-view-title'>二维码内容：</div>
             <div className='qr-content-view-upload'>
-              <Input value={value} setValue={setValue} placeholder={'https://baidu.com'} />
+              <Input value={value} setValue={setValue} placeholder={'https://sansui-d.github.io/QRCode/'} />
               <UploadQr onChange={setValue} style={{ width: 32, height: 32 }} />
             </div>
             <div className='qr-content-download'>

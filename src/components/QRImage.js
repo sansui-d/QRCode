@@ -2,6 +2,7 @@ import React from 'react';
 import { defaultViewBox } from '../utils/helper';
 import { getTypeTable, QRPointType } from '../utils/qrcodeHandler';
 import { RendererWrapper, drawIcon } from './RendererWrapper';
+import img from '../assets/img/img'
 
 const Type = {
     Rect: 'rect',
@@ -124,7 +125,7 @@ QRImage.defaultCSS = {
 }
 
 QRImage.defaultProps = {
-    image: "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==",
+    image: img,
     type: Type.Rect,
     size: 100,
     opacity: 100,

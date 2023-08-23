@@ -7,7 +7,7 @@ import alipay from '../../assets/svg/ali-pay.svg'
 import vxSmall from '../../assets/svg/vx-small.svg'
 import vx from '../../assets/svg/vx.svg'
 import vxPay from '../../assets/svg/vx-pay.svg'
-import { img } from '../../assets/img/img.js';
+import img from '../../assets/img/img.js';
 import './index.less';
 
 const levelOption = [

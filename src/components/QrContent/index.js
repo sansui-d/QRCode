@@ -7,7 +7,7 @@ function QrContent(props) {
 
     return (
         <div className="qr-img" >
-            <QRImage value={value || 'https://baidu.com'} {...parameterData} className='qr-svg' />
+            <QRImage value={value || 'https://sansui-d.github.io/QRCode/'} {...parameterData} className='qr-svg' />
         </div>
     );
 }
