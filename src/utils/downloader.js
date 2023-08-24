@@ -7,7 +7,7 @@ export function saveSvg(value, content) {
     let htmlContent = [svgHead + content]
     let bl = new Blob(htmlContent, { type: "image/svg+xml" })
     let a = document.createElement("a")
-    let filename = "QRcode_" + value || 'qr' + ".svg"
+    let filename = "QRcode_" + value + ".svg"
 
     a.href = URL.createObjectURL(bl)
     a.download = filename
@@ -19,7 +19,7 @@ export function saveImg(value, content, width, height, type) {
     if (!MIME[type]) throw "Error image type";
 
     // Finish creating downloadable data
-    let filename = "QRcode_" + value || 'qr' + "." + type;
+    let filename = "QRcode_" + value + "." + type;
     const wrap = document.createElement('div');
     wrap.innerHTML = content;
 
