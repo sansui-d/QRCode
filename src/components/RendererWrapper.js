@@ -4,7 +4,7 @@ import { encodeData } from "../utils/qrcodeHandler";
 export const RendererWrapper = (renderer) => {
     const Renderer = (props) => {
         let newProps = Object.assign({}, props);
-        newProps.value = newProps.value || 'https://sansui-d.github.io/QRCode/dist/index.html';
+        newProps.value = newProps.value || 'https://sansui-d.github.io/QRCode';
         newProps.qrcode = newProps.qrcode || encodeData({ text: newProps.value, correctLevel: newProps.level, typeNumber: -1 });
         newProps.styles = { ...renderer.defaultCSS, ...props.styles };
 

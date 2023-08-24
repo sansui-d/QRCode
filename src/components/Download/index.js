@@ -7,8 +7,8 @@ function Download(props) {
     const { value } = props
     const handleClick = (type) => {
         const svg = document.getElementsByClassName('qr-svg')[0]?.outerHTML;
-        type === 'svg' ? saveSvg(value || 'https://sansui-d.github.io/QRCode/dist/index.html', svg)
-            : saveImg(value || 'https://sansui-d.github.io/QRCode/dist/index.html', svg, 1500, 1500, type)
+        type === 'svg' ? saveSvg(value || 'https://sansui-d.github.io/QRCode', svg)
+            : saveImg(value || 'https://sansui-d.github.io/QRCode', svg, 1500, 1500, type)
     }
     return (
         <div className="qr-download">
