@@ -14,7 +14,7 @@ function Input(props) {
     }
     return (
         <div className="qr-input-outer">
-            <input type={type} name="text" className="qr-input" onChange={(e) => { setValue(e.target.value) }}
+            <input type={type} className="qr-input" onChange={(e) => { setValue(e.target.value) }}
                 placeholder={placeholder} value={value} onKeyUp={handleKeyUp} onBlur={handleBlur} />
         </div>
     );
