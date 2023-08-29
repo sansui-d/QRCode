@@ -1,4 +1,12 @@
-.qr-select {
+.qr-select-div {
+  position: relative;
+  height: 32px;
+  width: 170px;
+}
+
+.qr-select,
+.qr-select-label {
+  position: absolute;
   appearance: none;
   background-color: transparent;
   border: 0.125em solid #1a1a1a;
@@ -11,14 +19,14 @@
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 16px;
   font-weight: 600;
-  line-height: normal;
+  line-height: 28px;
   margin: 0;
   min-height: 2em;
   min-width: 0;
   outline: none;
   text-align: center;
   text-align: -webkit-center;
-  text-align:-moz-center;
+  text-align: -moz-center;
   text-decoration: none;
   user-select: none;
   -webkit-user-select: none;
@@ -27,16 +35,32 @@
   width: 170px;
 }
 
-.qr-select:disabled {
-  pointer-events: none;
+.qr-select {
+  opacity: 0;
 }
 
-.qr-select:hover {
-  color: #fff;
-  background-color: #1a1a1a;
-  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+.qr-select-div {
+  &:disabled {
+    .qr-select-label {
+      pointer-events: none;
+    }
+  }
 }
 
-.qr-select:active {
-  box-shadow: none;
+.qr-select-div {
+  &:hover {
+    .qr-select-label {
+      color: #fff;
+      background-color: #1a1a1a;
+      box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    }
+  }
+}
+
+.qr-select-div {
+  &:active {
+    .qr-select-label {
+      box-shadow: none;
+    }
+  }
 }

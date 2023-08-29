@@ -42,7 +42,7 @@ function ParameterList(props) {
     const [level, setLevel] = useState('H');
     const [icon, setIcon] = useState('none');
     const [iconScale, setIconScale] = useState(22);
-    const [iconType, setIconType] = useState(0);
+    const [iconType, setIconType] = useState('0');
     const [image, setImage] = useState(img);
     const [type, setType] = useState('rect');
     const [size, setSize] = useState(100);
@@ -54,9 +54,9 @@ function ParameterList(props) {
     const parameterList = [
         { label: '容错率', value: <Select defaultValue={level} options={levelOption} onChange={setLevel} />, key: 'parameter1' },
         { label: '图标', value: <Select defaultValue={iconType} options={iconTypeOption} onChange={setIconType} />, key: 'parameter2' },
-        { label: '图标源', value: <Upload setImage={setIcon} />, key: 'parameter3' },
+        { label: '图标源', value: <Upload setImage={setIcon} id='iconId' />, key: 'parameter3' },
         { label: '图标缩放', value: <Input value={iconScale} type='number' setValue={setIconScale} />, key: 'parameter4' },
-        { label: '背景图片', value: <Upload setImage={setImage} />, key: 'parameter5' },
+        { label: '背景图片', value: <Upload setImage={setImage} id='imageId' />, key: 'parameter5' },
         { label: '信息点样式', value: <Select defaultValue={type} options={typeOption} onChange={setType} />, key: 'parameter6' },
         { label: '信息点缩放', value: <Input value={size} type='number' setValue={setSize} />, key: 'parameter7' },
         { label: '信息点透明度', value: <Input value={opacity} type='number' setValue={setOpacity} />, key: 'parameter8' },
