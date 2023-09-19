@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Input from '../Input'
 import Select from '../Select'
 import Upload from '../Upload'
@@ -10,35 +11,9 @@ import vxPay from '../../assets/svg/vx-pay.svg'
 import img from '../../assets/img/img.js';
 import './index.less';
 
-const levelOption = [
-    { value: 'L', text: '7%', key: 'level0' },
-    { value: 'M', text: '15%', key: 'level1' },
-    { value: 'Q', text: '25%', key: 'level2' },
-    { value: 'H', text: '30%', key: 'level3' }
-]
-
-const iconTypeOption = [
-    { value: '0', text: '无', key: 'icon0' },
-    { value: '1', text: '自定义', key: 'icon1' },
-    { value: '2', text: '微信-小', key: 'icon2' },
-    { value: '3', text: '微信', key: 'icon3' },
-    { value: '4', text: '微信支付', key: 'icon4' },
-    { value: '5', text: '支付宝', key: 'icon5' },
-]
-
-const typeOption = [
-    { value: 'rect', text: '矩形', key: 'type0' },
-    { value: 'round', text: '圆形', key: 'type1' },
-]
-
-const posTypeOption = [
-    { value: 'rect', text: '矩形', key: 'posType0' },
-    { value: 'round', text: '圆形', key: 'posType1' },
-    { value: 'planet', text: '星星', key: 'posType2' },
-]
-
 function ParameterList(props) {
     const { onChange } = props
+    const { t } = useTranslation();
     const [level, setLevel] = useState('H');
     const [icon, setIcon] = useState('none');
     const [iconScale, setIconScale] = useState(22);
@@ -51,6 +26,29 @@ function ParameterList(props) {
     const [lightColor, setLightColor] = useState('#ffffff');
     const [posType, setPosType] = useState('rect');
     const [posColor, setPosColor] = useState('#000000')
+    const levelOption = [
+        { value: 'L', text: '7%', key: 'level0' },
+        { value: 'M', text: '15%', key: 'level1' },
+        { value: 'Q', text: '25%', key: 'level2' },
+        { value: 'H', text: '30%', key: 'level3' }
+    ]
+    const iconTypeOption = [
+        { value: '0', text: t('none'), key: 'icon0' },
+        { value: '1', text: t('custom'), key: 'icon1' },
+        { value: '2', text: t('weixins'), key: 'icon2' },
+        { value: '3', text: t('weixin'), key: 'icon3' },
+        { value: '4', text: t('weixinPay'), key: 'icon4' },
+        { value: '5', text: t('ali'), key: 'icon5' },
+    ]
+    const typeOption = [
+        { value: 'rect', text: '矩形', key: 'type0' },
+        { value: 'round', text: '圆形', key: 'type1' },
+    ]
+    const posTypeOption = [
+        { value: 'rect', text: '矩形', key: 'posType0' },
+        { value: 'round', text: '圆形', key: 'posType1' },
+        { value: 'planet', text: '星星', key: 'posType2' },
+    ]
     const parameterList = [
         { label: '容错率', value: <Select defaultValue={level} options={levelOption} onChange={setLevel} />, key: 'parameter1' },
         { label: '图标', value: <Select defaultValue={iconType} options={iconTypeOption} onChange={setIconType} />, key: 'parameter2' },

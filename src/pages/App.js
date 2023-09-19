@@ -29,19 +29,19 @@ function App() {
             <QrContent parameterData={parameterData} value={value} />
           </div>
           <div className='qr-content-view-right'>
-            <div className='qr-content-view-title'>{t('qrContent')}二维码内容：</div>
+            <div className='qr-content-view-title'>{t('qrContent')}</div>
             <div className='qr-content-view-upload'>
               <Input value={value} setValue={setValue} placeholder={'sansui-d.github.io/QRCode'} />
               <UploadQr onChange={setValue} style={{ width: 32, height: 32, marginLeft: '10px' }} />
             </div>
             <div className='qr-content-download'>
-              <div className='qr-content-view-title'>二维码下载：</div>
+              <div className='qr-content-view-title'>{t('qrDownload')}</div>
               <Download value={value} />
             </div>
           </div>
         </div>
         <div className='qr-content-parameter'>
-          <div className='qr-content-parameter-title'>二维码参数：</div>
+          <div className='qr-content-parameter-title'>{t('qrParameter')}</div>
           <ParameterList onChange={setParameterData} />
         </div>
       </div>
