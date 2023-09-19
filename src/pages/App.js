@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Nav from '../components/Nav';
 import QrContent from '../components/QrContent';
 import Input from '../components/Input';
@@ -8,6 +9,7 @@ import UploadQr from '../components/UploadQr';
 import './App.less';
 
 function App() {
+  const { t } = useTranslation();
   const [theme, setTheme] = useState('light')
   const [parameterData, setParameterData] = useState({})
   const [value, setValue] = useState('')
@@ -27,7 +29,7 @@ function App() {
             <QrContent parameterData={parameterData} value={value} />
           </div>
           <div className='qr-content-view-right'>
-            <div className='qr-content-view-title'>二维码内容：</div>
+            <div className='qr-content-view-title'>{t('qrContent')}二维码内容：</div>
             <div className='qr-content-view-upload'>
               <Input value={value} setValue={setValue} placeholder={'sansui-d.github.io/QRCode'} />
               <UploadQr onChange={setValue} style={{ width: 32, height: 32, marginLeft: '10px' }} />
