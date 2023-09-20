@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import i18n from '../../i18n';
 import Input from '../Input'
 import Select from '../Select'
 import Upload from '../Upload'
@@ -41,27 +42,27 @@ function ParameterList(props) {
         { value: '5', text: t('ali'), key: 'icon5' },
     ]
     const typeOption = [
-        { value: 'rect', text: '矩形', key: 'type0' },
-        { value: 'round', text: '圆形', key: 'type1' },
+        { value: 'rect', text: t('rectangle'), key: 'type0' },
+        { value: 'round', text: t('round'), key: 'type1' },
     ]
     const posTypeOption = [
-        { value: 'rect', text: '矩形', key: 'posType0' },
-        { value: 'round', text: '圆形', key: 'posType1' },
-        { value: 'planet', text: '星星', key: 'posType2' },
+        { value: 'rect', text: t('rectangle'), key: 'posType0' },
+        { value: 'round', text: t('round'), key: 'posType1' },
+        { value: 'planet', text: t('star'), key: 'posType2' },
     ]
     const parameterList = [
-        { label: '容错率', value: <Select defaultValue={level} options={levelOption} onChange={setLevel} />, key: 'parameter1' },
-        { label: '图标', value: <Select defaultValue={iconType} options={iconTypeOption} onChange={setIconType} />, key: 'parameter2' },
-        { label: '图标源', value: <Upload setImage={setIcon} id='iconId' />, key: 'parameter3' },
-        { label: '图标缩放', value: <Input value={iconScale} type='number' setValue={setIconScale} />, key: 'parameter4' },
-        { label: '背景图片', value: <Upload setImage={setImage} id='imageId' />, key: 'parameter5' },
-        { label: '信息点样式', value: <Select defaultValue={type} options={typeOption} onChange={setType} />, key: 'parameter6' },
-        { label: '信息点缩放', value: <Input value={size} type='number' setValue={setSize} />, key: 'parameter7' },
-        { label: '信息点透明度', value: <Input value={opacity} type='number' setValue={setOpacity} />, key: 'parameter8' },
-        { label: '信息点深色', value: <ColorPicker color={darkColor} onChange={setDarkColor} />, key: 'parameter9' },
-        { label: '信息点浅色', value: <ColorPicker color={lightColor} onChange={setLightColor} />, key: 'parameter10' },
-        { label: '定位点样式', value: <Select defaultValue={posType} options={posTypeOption} onChange={setPosType} />, key: 'parameter11' },
-        { label: '定位点颜色', value: <ColorPicker color={posColor} onChange={setPosColor} />, key: 'parameter12' },
+        { label: t('errorRate'), value: <Select defaultValue={level} options={levelOption} onChange={setLevel} />, key: 'parameter1' },
+        { label: t('icon'), value: <Select defaultValue={iconType} options={iconTypeOption} onChange={setIconType} />, key: 'parameter2' },
+        { label: t('iconSource'), value: <Upload setImage={setIcon} id='iconId' />, key: 'parameter3' },
+        { label: t('iconZoom'), value: <Input value={iconScale} type='number' setValue={setIconScale} />, key: 'parameter4' },
+        { label: t('backgroundImg'), value: <Upload setImage={setImage} id='imageId' />, key: 'parameter5' },
+        { label: t('infoStyle'), value: <Select defaultValue={type} options={typeOption} onChange={setType} />, key: 'parameter6' },
+        { label: t('infoZoom'), value: <Input value={size} type='number' setValue={setSize} />, key: 'parameter7' },
+        { label: t('infoOpactiy'), value: <Input value={opacity} type='number' setValue={setOpacity} />, key: 'parameter8' },
+        { label: t('infoDark'), value: <ColorPicker color={darkColor} onChange={setDarkColor} />, key: 'parameter9' },
+        { label: t('infoLight'), value: <ColorPicker color={lightColor} onChange={setLightColor} />, key: 'parameter10' },
+        { label: t('tackStyle'), value: <Select defaultValue={posType} options={posTypeOption} onChange={setPosType} />, key: 'parameter11' },
+        { label: t('tackColor'), value: <ColorPicker color={posColor} onChange={setPosColor} />, key: 'parameter12' },
     ]
     const currentIcon = useMemo(() => {
         const iconList = ['', icon, vxSmall, vx, vxPay, alipay]
@@ -87,7 +88,7 @@ function ParameterList(props) {
     return (
         <div className="qr-parameter-list">
             {parameterList.map((item) => {
-                if ((item.label === '图标源' && iconType != 1) || (item.label === '图标缩放' && iconType == 0)) {
+                if ((item.label === t('iconSource') && iconType != 1) || (item.label === t('iconZoom') && iconType == 0)) {
                     return (
                         <div className='qr-parameter-item' key={item.key} style={{ display: 'none' }}>
                             <div className='qr-parameter-label'>{item.label}</div>

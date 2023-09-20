@@ -12,7 +12,12 @@ const languageOption = [
 
 function Nav(props) {
     const { theme, onChangeTheme } = props;
+    const [lan, setLan] = React.useState('en')
     const { t } = useTranslation();
+    const handleChangeLan = (val) => {
+        i18n.changeLanguage(val)
+        setLan(val)
+    }
     return (
         <div className='qr-nav'>
             <div className='qr-nav-left'>
@@ -28,7 +33,7 @@ function Nav(props) {
                         <span className="slider"></span>
                     </label>
                 </div>
-                <Select defaultValue={'en'} options={languageOption} onChange={(val) => { i18n.changeLanguage(val) }} />
+                <Select defaultValue={lan} options={languageOption} onChange={handleChangeLan} />
             </div>
         </div>
     );

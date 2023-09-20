@@ -1,11 +1,13 @@
 import React, { useRef } from 'react';
 import { useHoverDirty } from 'react-use';
+import { useTranslation } from 'react-i18next';
 import { decodeData } from '../../utils/qrcodeHandler';
 import { isPicture } from '../../utils/helper';
 import './index.less';
 
 function UploadQr(props) {
     const { onChange, style } = props
+    const { t } = useTranslation();
     const ref = useRef(null)
     const isHovering = useHoverDirty(ref);
     const handleChange = async (e) => {
@@ -46,7 +48,7 @@ function UploadQr(props) {
                 onClick={(e) => e.target.value = null}
                 onChange={(e) => handleChange(e)}
             />
-            {isHovering && <div className='qr-upload-qr-tooltip'>上传二维码，识别二维码内容</div>}
+            {isHovering && <div className='qr-upload-qr-tooltip'>{t('uoloadQr')}</div>}
         </div>
     );
 }
