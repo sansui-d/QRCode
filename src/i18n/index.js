@@ -47,7 +47,7 @@ i18n
           qrContent: '二维码内容：',
           qrDownload: '二维码下载：',
           qrParameter: '二维码参数：',
-          errorRate: '荣错率',
+          errorRate: '容错率',
           icon: '图标',
           iconSource: '图标源',
           iconZoom: '图标缩放',
